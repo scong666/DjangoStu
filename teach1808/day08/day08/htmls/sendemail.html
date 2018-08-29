@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+</head>
+<body>
+    <h1>千锋占座后台</h1>
+    <input type="email" id="em">
+    <button>发送</button>
+</body>
+<script>
+    $("button").click(function () {
+        var email = $("#em").val();
+        $.ajax({
+            url:"/t08/send_v3",
+            data:{"addr":email},
+            method:"GET",
+            success:function (res) {
+                if (res.code == 1){
+                    alert(res.msg);
+                }else {
+                    alert(res.msg);
+                }
+            }
+        })
+    })
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<br />
+<br />
+<br />
+<center>
+    <h1 style = "color: brown"><font >商品</font></h1>
+
+    <table cellpadding="5" cellspacing="0" width="300px">
+
+        <tr>
+            <td><font color = blue>名称</font></td>
+            <td><font color = red>价格</font></td>
+        </tr>
+        {% for foo in shangpin %}
+        <tr>
+            <td>{{ foo.name }}</td>
+            <td>{{ foo.price }}</td>
+        </tr>
+             {% endfor %}
+    </table>
+</center>
+</body>
+</html>

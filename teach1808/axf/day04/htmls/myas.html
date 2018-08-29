@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for i in ass %}
+        {# > 符号前后要有空格 #}
+        {% if i.face_score > 100 %}
+            {# 如果颜值大于100 颜色变红 #}
+            <li style="color: red">{{ i.name }}</li>
+            {% else %}
+            {# 否则颜色正常 #}
+            <li>{{ i.name }}</li>
+        {% endif %}
+    {% endfor %}
+    {# 通过下标去拿单个数据 #}
+    <p>{{ ass.0.face_score }}</p>
+    {# 访问对象的方法 #}
+    <p>我是通过访问方法得到的信息{{ ass.1.get_msg }}</p>
+
+    <hr/>
+    <h2>这个是带empty的</h2>
+    {% for foo in ass %}
+        <li>{{ foo.name }}</li>
+        {% empty %}
+            <h1>哈哈没数据</h1>
+    {% endfor %}
+    <hr/>
+<h1>变量计算</h1>
+原来是{{ ass.0.face_score }}乘以2以后是 {% widthratio ass.0.face_score 1 2 %}
+<br/>
+{#整除{{ ass.0.face_score|divisibleby:2 }}#}
+<br/>
+不整除{{ ass.0.face_score|divisibleby:3 }}
+
+<hr/>
+<h2>过滤器：var|过滤器</h2>
+    原来是{{ ass.0.face_score }}加一:{{ ass.0.face_score|add:1 }
+<br>
+    原来是{{ ass.0.face_score }}加负一:{{ ass.0.face_score|add:-1 }}
+<br>
+    join的使用：{{ ass|join:"-" }}
+<br>
+    {{ ass.0.face_score|default:2 }}
+
+    {{ code|safe }}
+</body>
+</html>
